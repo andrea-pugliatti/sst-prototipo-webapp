@@ -1,5 +1,18 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DetailTravel from "./pages/DetailTravel";
+import HomePage from "./pages/Homepage";
+
 function App() {
-	return <></>;
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route element={<DefaultLayout />}>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/detail/:id" element={<DetailTravel />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
