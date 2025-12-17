@@ -1,6 +1,7 @@
 const users = [
 	{
 		id: 1,
+    travel_id: 1,
 		first_name: "Marco",
 		last_name: "Rossi",
 		email: "marco.rossi@example.com",
@@ -9,6 +10,7 @@ const users = [
 	},
 	{
 		id: 2,
+    travel_id: 1,
 		first_name: "Giulia",
 		last_name: "Bianchi",
 		email: "giulia.bianchi@example.com",
@@ -17,6 +19,7 @@ const users = [
 	},
 	{
 		id: 3,
+    travel_id: 2,
 		first_name: "Luca",
 		last_name: "Verdi",
 		email: "luca.verdi@example.com",
@@ -25,6 +28,7 @@ const users = [
 	},
 	{
 		id: 4,
+    travel_id: 3,
 		first_name: "Sara",
 		last_name: "Neri",
 		email: "sara.neri@example.com",
@@ -33,12 +37,49 @@ const users = [
 	},
 	{
 		id: 5,
+    travel_id: 4,
 		first_name: "Alessandro",
 		last_name: "Gialli",
 		email: "alessandro.gialli@example.com",
 		id_code: "GLLALE85M01H501U",
 		phone: "+39 123 456 7890",
 	},
+  {
+		id: 6,
+    travel_id: 5,
+		first_name: "Francesca",
+		last_name: "Rosa",
+		email: "francesca.rosa@example.com",
+		id_code: "RSFRNC85M01H501U",
+		phone: "+39 123 456 7890",
+	},
+  {
+    id: 7,
+    travel_id: 3,
+		first_name: "Elena",
+		last_name: "Bianchi",
+		email: "elena.bianchi@example.com",
+		id_code: "BNCELN85M01H501U",
+		phone: "+39 123 456 7890",
+  },
+  {
+    id: 8,
+    travel_id: 4,
+    first_name: "Matteo",
+    last_name: "Russo",
+    email: "matteo.russo@example.com",
+    id_code: "RSSMTT85M01H501U",
+    phone: "+39 123 456 7890",
+  },
+  {
+    id: 9,
+    travel_id: 2,
+    first_name: "Chiara",
+    last_name: "Conti",
+    email: "chiara.conti@example.com",
+    id_code: "CNTCHI85M01H501U",
+    phone: "+39 123 456 7890",
+  },
 ];
 
 export default users;
