@@ -1,23 +1,29 @@
-import users from "../data/users"
-import travels from "../data/travels"
-import { useParams } from "react-router-dom"
-import SearchBar from "../components/SearchBar"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import SearchBar from "../components/SearchBar";
+import travels from "../data/travels";
+import users from "../data/users";
+import { useTravels } from "../contexts/TravelsContext";
 
 export default function DetailTravel() {
+	const { id } = useParams(); // ottengo id dall'URL
 
-	const { id } = useParams() // ottengo id dall'URL
+	const travelId = Number(id);
+	const travelUsers = users.filter((user) => user.travel_id === travelId);
 
-	const travelId = Number(id)
-	const travelUsers = users.filter(user => user.travel_id === travelId)
+	const { list } = useTravels();
+	useEffect();
+	const travelName = list.find((current) => current.id === travelId);
+	console.log(travelName);
 
-	// // stato iniziale: mostro tutti gli utenti già filtrati per il singolo viaggio
-	// const [displayedUsers, setDisplayedUsers] = useState(travelUsers)
+	// stato iniziale: mostro tutti gli utenti già filtrati per il singolo viaggio
+	const [displayedUsers, setDisplayedUsers] = useState(travelUsers);
 
 	return (
 		<>
 			<div className="container mt-3">
-
-				<h1 className="d-flex justify-content-center">{travels[travelId - 1].destination} trip</h1>
+				<SearchBar users={displayedUsers} onSearchResults={setDisplayedUsers} />
+				<h1 className="d-flex justify-content-center">{travelName} trip</h1>
 				{/* table */}
 				<table className="table border-dark">
 					{/* table head */}
@@ -33,32 +39,19 @@ export default function DetailTravel() {
 					</thead>
 					{/* table body */}
 					<tbody>
-						{travelUsers.map(user => (
+						{displayedUsers.map((user) => (
 							<tr key={user.id}>
-								<th>
-									{user.id}
-								</th>
-								<td>
-									{user.first_name}
-								</td>
-								<td>
-									{user.last_name}
-								</td>
-								<td>
-									{user.email}
-								</td>
-								<td>
-									{user.phone}
-								</td>
-								<td>
-									{user.id_code}
-								</td>
+								<th>{user.id}</th>
+								<td>{user.first_name}</td>
+								<td>{user.last_name}</td>
+								<td>{user.email}</td>
+								<td>{user.phone}</td>
+								<td>{user.id_code}</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
-			</div >
-
+			</div>
 		</>
-	)
+	);
 }
