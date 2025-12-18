@@ -23,33 +23,34 @@ export default function DetailTravel() {
 			<h1 className="d-flex justify-content-center">
 				{travelName.destination} trip
 			</h1>
-			{/* table */}
-			<table className="table border-dark">
-				{/* table head */}
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Firstname</th>
-						<th scope="col">Lastname</th>
-						<th scope="col">E-mail</th>
-						<th scope="col">Phone number</th>
-						<th scope="col">id_code</th>
-					</tr>
-				</thead>
-				{/* table body */}
-				<tbody>
-					{displayedUsers.map((user) => (
-						<tr key={user.id}>
-							<th>{user.id}</th>
-							<td>{user.first_name}</td>
-							<td>{user.last_name}</td>
-							<td>{user.email}</td>
-							<td>{user.phone}</td>
-							<td>{user.id_code}</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
+
+			<div className="accordion" id="accordionExample">
+				{displayedUsers.map((user, i) => (
+					<div key={user.id} className="accordion-item">
+						<h2 className="accordion-header">
+							<button
+								className="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target={`#collapse-${i}`}
+								aria-expanded="false"
+								aria-controls={`#collapse-${i}`}
+							>
+								{user.first_name} {user.last_name}
+							</button>
+						</h2>
+						<div
+							id={`collapse-${i}`}
+							className="accordion-collapse collapse"
+							data-bs-parent="#accordionExample"
+						>
+							<div className="accordion-body">
+								{user.email} {user.id_code} {user.phone}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }

@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 
 export default function Header() {
 	return (
-		<header>
+		<header className="fixed-top">
 			<NavBar />
 		</header>
 	);

@@ -28,7 +28,7 @@ export default function TravelForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className="">
 			<h2>Aggiungi viaggio</h2>
 			<div className="form mb-3">
 				<label htmlFor="destination" className="form-label">

@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
 	return (
 		<nav className="navbar navbar-expand-lg bg-body-tertiary">
 			<div className="container-fluid">
-				<Link className="navbar-brand" to={"/"}>
-					Navbar
-				</Link>
+				<NavLink className="navbar-brand fw-bold" to="/">
+					TravelApp
+				</NavLink>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -21,9 +21,14 @@ export default function NavBar() {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<Link className="nav-link active" to={"/"}>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? "nav-link active" : "nav-link"
+								}
+								to="/"
+							>
 								Home
-							</Link>
+							</NavLink>
 						</li>
 					</ul>
 				</div>

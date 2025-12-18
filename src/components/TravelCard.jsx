@@ -8,16 +8,26 @@ export default function TravelCard({
 	path,
 }) {
 	return (
-		<div className="col">
-			<div className="card h-100">
-				<img src={null} className="card-img" />
-				<h1 className="card-header">{destination}</h1>
-				<div className="card-body">
-					<h5 className="card-title">{start_date}</h5>
-					<h5 className="card-title">{end_date}</h5>
-					<p className="card-text">{description}</p>
-					<Link to={path} className="btn btn-primary">
-						Partecipanti
+		<div className="col-12 col-md-6 col-lg-4 mb-4 mt-4">
+			<div className="card h-100  border-1">
+				<img
+					src={null}
+					className="card-img-top"
+					style={{ height: "200px", objectFit: "cover" }}
+				/>
+				<div className="card-header bg-white border-0 pt-3">
+					<h3 className="text-center h5 mb-0 fw-bold">{destination}</h3>
+				</div>
+				<div className="card-body d-flex flex-column text-center">
+					<p className="card-text text-muted fs-6 flex-grow-1">{description}</p>
+					<div className="my-3 py-2 bg-light rounded-3">
+						<div className="small text-secondary">Periodo del viaggio:</div>
+						<div className="fw-semibold">
+							{start_date} — {end_date}
+						</div>
+					</div>
+					<Link to={path} className="btn btn-primary w-100 py-2 mt-auto">
+						<i className="bi bi-people-fill me-2"></i> Partecipanti
 					</Link>
 				</div>
 			</div>
