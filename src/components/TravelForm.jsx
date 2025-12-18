@@ -50,7 +50,7 @@ export default function TravelForm() {
 						Data di inizio viaggio
 					</label>
 					<input
-						class="form-control"
+						className="form-control"
 						type="date"
 						id="start-date"
 						name="start-date"

@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
-import travels from "../data/travels";
-import users from "../data/users";
 import { useTravels } from "../contexts/TravelsContext";
+import AddUsersForm from "../components/AddUsersForm";
+import { useUsers } from "../contexts/UsersContext";
 
 export default function DetailTravel() {
 	const { id } = useParams(); // ottengo id dall'URL
 
 	const travelId = Number(id);
-	const travelUsers = users.filter((user) => user.travel_id === travelId);
+
+	const { usersList } = useUsers();
+	const travelUsers = usersList.filter((user) => user.travel_id === travelId);
 
 	const { list } = useTravels();
 	const travelName = list.find((current) => current.id === travelId);
@@ -17,12 +19,20 @@ export default function DetailTravel() {
 	// stato iniziale: mostro tutti gli utenti già filtrati per il singolo viaggio
 	const [displayedUsers, setDisplayedUsers] = useState(travelUsers);
 
+	useEffect(() => {
+		setDisplayedUsers(travelUsers);
+	}, [usersList]);
+
 	return (
-		<div className="container mt-3">
-			<SearchBar users={displayedUsers} onSearchResults={setDisplayedUsers} />
-			<h1 className="d-flex justify-content-center">
+		<div className="container pt-5 pb-5 my-5">
+			<h1 className="text-center mb-4 fw-bold text-uppercase">
 				{travelName.destination} trip
 			</h1>
+			<div className="d-flex justify-content-center mb-5">
+				<div className="w-100" style={{ maxWidth: "600px" }}>
+					<SearchBar users={travelUsers} onSearchResults={setDisplayedUsers} />
+				</div>
+			</div>
 
 			<div className="accordion" id="accordionExample">
 				{displayedUsers.map((user, i) => (
@@ -45,12 +55,21 @@ export default function DetailTravel() {
 							data-bs-parent="#accordionExample"
 						>
 							<div className="accordion-body">
-								{user.email} {user.id_code} {user.phone}
+								<div className="mb-2">
+									<strong>Email:</strong> {user.email}
+								</div>
+								<div className="mb-2">
+									<strong>ID Code:</strong> <code>{user.id_code}</code>
+								</div>
+								<div>
+									<strong>Phone:</strong> {user.phone}
+								</div>
 							</div>
 						</div>
 					</div>
 				))}
 			</div>
+			<AddUsersForm id={travelId} />
 		</div>
 	);
 }
