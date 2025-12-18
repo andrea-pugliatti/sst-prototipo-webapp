@@ -69,6 +69,12 @@ export default function DetailTravel() {
 					</div>
 				))}
 			</div>
+
+			{displayedUsers.length === 0 && (
+				<p className="text-center mt-4 text-muted">
+					Nessun partecipante trovato.
+				</p>
+			)}
 			<AddUsersForm id={travelId} />
 		</div>
 	);
