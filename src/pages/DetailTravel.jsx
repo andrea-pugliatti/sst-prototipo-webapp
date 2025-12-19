@@ -34,7 +34,7 @@ export default function DetailTravel() {
 				</div>
 			</div>
 
-			<div className="accordion" id="accordionExample">
+			<div className="accordion my-5" id="accordionExample">
 				{displayedUsers.map((user, i) => (
 					<div key={user.id} className="accordion-item">
 						<h2 className="accordion-header">

@@ -26,7 +26,7 @@ export default function AddUsersForm({ id }) {
 	return (
 		<form onSubmit={handleSubmit} className="">
 			<h2>Aggiungi Partecipante</h2>
-			<div className="row mb-3">
+			<div className="row my-3">
 				<div className="col">
 					<label className="form-label" htmlFor="first-name">
 						Nome
