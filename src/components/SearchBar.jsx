@@ -11,10 +11,11 @@ const SearchBar = ({ users, onSearchResults }) => {
 
 		const value = searchTerm.toLowerCase().trim();
 		setSearchTerm(value);
+		onSearchResults(users);
 
 		if (value === "") {
 			// se la barra di ricerca è vuota, mostro tutti i partecipanti
-			onSearchResults(users);
+			// onSearchResults(users);
 			return;
 		}
 
