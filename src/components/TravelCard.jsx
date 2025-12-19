@@ -4,16 +4,18 @@ export default function TravelCard({
 	destination,
 	start_date,
 	end_date,
+	image,
 	description,
 	path,
 }) {
 	return (
 		<div className="col-12 col-md-6 col-lg-4 mb-4 mt-4">
-			<div className="card h-100  border-1">
+			<div className="card h-100 border-1">
 				<img
-					src={null}
+					src={image}
 					className="card-img-top"
 					style={{ height: "200px", objectFit: "cover" }}
+					alt={destination}
 				/>
 				<div className="card-header bg-white border-0 pt-3">
 					<h3 className="text-center h5 mb-0 fw-bold">{destination}</h3>
