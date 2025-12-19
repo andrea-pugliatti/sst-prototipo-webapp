@@ -9,7 +9,6 @@ export default function HomePage() {
 
 	return (
 		<div className="container pt-5 pb-5 my-5">
-			<TravelForm />
 			<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
 				{list.map((thisTravel) => (
 					<TravelCard
@@ -22,6 +21,7 @@ export default function HomePage() {
 					/>
 				))}
 			</div>
+			<TravelForm />
 		</div>
 	);
 }
